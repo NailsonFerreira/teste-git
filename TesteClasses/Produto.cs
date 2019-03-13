@@ -9,24 +9,33 @@ namespace TesteClasses
     {
         private string _nome;
         public double Preco { get; private set; }
-        private int Quantidade;
+        public int Quantidade { get; private set; }
 
         //PROPERTIE é equivalente ao get/set
         public string Nome
         {
             get { return _nome; }
             set {
-                _nome = value;
+                if ((value != null) && (value.Length > 2))
+                {
+                    _nome = value;
+                }
+                
             }
         }
 
         
+        public void RemoverEstoque()
+        {
+            Console.Write("\nRetirar a quantidade ao estoque de {0}: ", _nome);
+            Quantidade -= int.Parse(Console.ReadLine());
+        }
 
         public override string ToString()
         {
             return _nome
                 + ", $"
-                + _preco.ToString("F2", CultureInfo.InvariantCulture)
+                + Preco.ToString("F2", CultureInfo.InvariantCulture)
                 + ", Quantidade em estoque:"
                 + Quantidade;
         }
