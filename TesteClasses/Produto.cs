@@ -36,7 +36,7 @@ namespace TesteClasses
             return _nome
                 + ", $"
                 + Preco.ToString("F2", CultureInfo.InvariantCulture)
-                + ", Quantidade em estoque:"
+                + ", Quantidade em estoque: "
                 + Quantidade;
         }
 
